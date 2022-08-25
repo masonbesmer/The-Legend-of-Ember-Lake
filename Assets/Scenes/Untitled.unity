@@ -446,6 +446,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 42819562842121005, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 670821507589486119, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2263329616827262555, guid: 70e8763e213ff914d9fb9085c562e95a,
         type: 3}
       propertyPath: m_RootOrder
