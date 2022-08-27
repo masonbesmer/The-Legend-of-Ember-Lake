@@ -231,7 +231,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 2263329616827262555, guid: 70e8763e213ff914d9fb9085c562e95a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 16.7
       objectReference: {fileID: 0}
     - target: {fileID: 2263329616827262555, guid: 70e8763e213ff914d9fb9085c562e95a,
         type: 3}
@@ -509,6 +509,36 @@ PrefabInstance:
     - target: {fileID: 2263329616827262555, guid: 70e8763e213ff914d9fb9085c562e95a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789991162839780956, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789991162839780956, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789991162839780956, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789991162839780956, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789991162839780956, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789991162839780956, guid: 70e8763e213ff914d9fb9085c562e95a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
