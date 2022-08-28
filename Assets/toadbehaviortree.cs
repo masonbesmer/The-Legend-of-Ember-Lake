@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BehaviourTree;
+using Tree = BehaviourTree.Tree;
 
-public class toadbehaviortree : MonoBehaviour
+public class toadbehaviortree : Tree
 {
     // Start is called before the first frame update
-    void Start()
+    protected override Node SetupTree()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Node root = new Selector(new List<Node>
+        {
+            new TaskAttack(objectTransform.GetComponent<NavMeshAgent>(), targetTransform,objectTransform,attackRange),
+            new TaskChase(objectTransform.GetComponent<NavMeshAgent>(), objectTransform.GetComponent<Rigidbody>(),targetTransform,objectTransform,chaseRange,returnRange),
+            new TaskIdle(targetTransform,1)
+        });
     }
 }
