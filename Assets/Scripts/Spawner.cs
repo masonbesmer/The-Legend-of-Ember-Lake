@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] SpawnerScriptableObject enemyDataContainer;
-    [SerializeField] GameObject player;
     [SerializeField] EnemyTypes enemyType;
     [SerializeField] int numberOfEnemies;
     [SerializeField] float offsetBetweenEachOther;
@@ -21,7 +20,6 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         enemyToSpawnObject = enemyDataContainer.GetEnemyInstance(enemyType);
-        enemyToSpawnObject.GetComponent<BehaviourTree.Tree>().SetTarget(player);
         StartCoroutine(Spawn());
     }
 
@@ -36,35 +34,46 @@ public class Spawner : MonoBehaviour
        // enemy.onDeathAction -= OnEnemyDeath;
     }
 
+  /*
+    to spawn enemies that are distant from each other. 
+    30 deg
+    
+    0-30   - 0
+    30-60  - 1
+    60-90  - 2
+    
+   
+   
+   
+   */
+
     IEnumerator Spawn()
     {
         while (true)
         {
 
-            for (int i = 0; i < numberOfEnemies; i++)
+            for(int i = 0; i < numberOfEnemies; i++)
             {
-                yield return new WaitUntil(() => transform.childCount < numberOfEnemies);
-
                 GameObject enemyObject = Instantiate(enemyToSpawnObject, transform);
                 enemyObject.transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(0, 360));
                 enemyObject.transform.localScale *= 3;
                 bool hasFoundSpawnPoint = false;
-
+               
                 while (!hasFoundSpawnPoint)
                 {
                     var offsetPosition = Random.insideUnitSphere * distance;
                     Ray ray = new Ray(transform.position + offsetPosition + (Vector3.up * distance), Vector3.down);
-
-                    if (!Physics.SphereCast(ray, offsetBetweenEachOther, 100, enemyMask))
+                
+                    if (!Physics.SphereCast(ray,offsetBetweenEachOther,100,enemyMask))
                     {
-                        if (Physics.Raycast(ray, out RaycastHit hit, 100, groundMask))
+                        if (Physics.Raycast(ray, out RaycastHit hit,100,groundMask))
                         {
                             Debug.Log("Spawning");
                             enemyObject.transform.position = hit.point + Vector3.up * 2.0f;
                             hasFoundSpawnPoint = true;
                             break;
                         }
-                        //  yield return null;
+                      //  yield return null;
                     }
                     yield return new WaitForEndOfFrame();
                 }

@@ -7,6 +7,8 @@ using UnityEngine.AI;
 
 public class SkunkBehaviourTree : Tree
 {
+    [SerializeField] Transform objectTransform;
+    [SerializeField] Transform targetTransform;
     [SerializeField] ParticleSystem fartPX;
     [SerializeField] float chaseRange;
     [SerializeField] float returnRange;
