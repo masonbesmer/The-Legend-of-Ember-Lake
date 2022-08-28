@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - StarGate
+  - StarSigil
+  - MoonGate
+  - MoonSigil
+  - SunGate
+  - SunSigil
   layers:
   - Default
   - TransparentFX
