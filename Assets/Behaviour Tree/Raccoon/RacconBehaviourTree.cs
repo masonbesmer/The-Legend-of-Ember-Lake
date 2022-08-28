@@ -6,8 +6,7 @@ using Tree = BehaviourTree.Tree;
 using UnityEngine.AI;
 public class RacconBehaviourTree : Tree
 {
-    [SerializeField] Transform objectTransform;
-    [SerializeField] Transform targetTransform;
+
     [SerializeField] float chaseRange;
     [SerializeField] float returnRange;
     [SerializeField] float attackRange;
@@ -34,7 +33,5 @@ public class RacconBehaviourTree : Tree
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, returnRange);
     }
-
-    public void SetTarget(Transform playerTransform) => targetTransform = playerTransform; 
 
 }

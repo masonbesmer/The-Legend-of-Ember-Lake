@@ -17,10 +17,10 @@ ModelImporter:
     second: Flying
   - first:
       74: 6517714258327031822
-    second: Idle.001
+    second: Idle
   - first:
       74: 4692377560945154130
-    second: JumpToFly
+    second: Fly
   - first:
       74: -8835266472246828748
     second: Idle.002
@@ -86,7 +86,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle.001
+      name: Idle
       takeName: Idle.001
       internalID: 0
       firstFrame: 0
@@ -173,7 +173,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: JumpToFly
+      name: Fly
       takeName: JumpToFly
       internalID: 0
       firstFrame: 0
@@ -258,7 +258,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Armature.001
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -266,7 +266,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
