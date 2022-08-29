@@ -51,15 +51,15 @@ public class SigilGates : MonoBehaviour
             else if (tag.Contains("Sigil")) {
                 if (tag.Contains("Star")) {
                     player.GetComponent<SigilGates>().hasStarSigil = true;
-                    GameObject.Destroy();
+                    GameObject.Destroy(gameObject);
                 }
                 if (tag.Contains("Sun")) {
                     player.GetComponent<SigilGates>().hasSunSigil = true;
-                    GameObject.Destroy();
+                    GameObject.Destroy(gameObject);
                 }
                 if (tag.Contains("Moon")) {
                     player.GetComponent<SigilGates>().hasMoonSigil = true;
-                    GameObject.Destroy();
+                    GameObject.Destroy(gameObject);
                 }
             }
         }
