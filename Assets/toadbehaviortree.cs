@@ -11,9 +11,9 @@ public class toadbehaviortree : Tree
     {
         Node root = new Selector(new List<Node>
         {
-            new TaskAttack(objectTransform.GetComponent<UnityEngine.AI.NavMeshAgent>(), targetTransform,objectTransform,attackRange),
-            new TaskChase(objectTransform.GetComponent<UnityEngine.AI.NavMeshAgent>(), objectTransform.GetComponent<Rigidbody>(),targetTransform,objectTransform,chaseRange,returnRange),
-            new TaskIdle(targetTransform,1)
+            
         });
+
+        return root;
     }
 }

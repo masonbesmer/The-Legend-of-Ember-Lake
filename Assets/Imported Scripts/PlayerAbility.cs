@@ -34,7 +34,7 @@ public class PlayerAbility : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Attacking");
+          //  Debug.Log("Attacking");
           //  wand.SetTrigger("attack");
             //   Ray ray = new Ray(transform.position,);
             RaycastHit hitInfo;
@@ -49,7 +49,7 @@ public class PlayerAbility : MonoBehaviour
             }
             else
             {
-                Debug.Log("No cast");
+              //  Debug.Log("No cast");
             }
         }
     }

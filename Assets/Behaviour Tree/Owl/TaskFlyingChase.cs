@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BehaviourTree;
 
-public class TaskFlyingChase : MonoBehaviour
+public class TaskFlyingChase : Node
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float timeDelay;
+    private bool isChasing;
 
-    // Update is called once per frame
-    void Update()
+    public TaskFlyingChase()
     {
-        
+
+        timeDelay = 3.0f;
+        isChasing = true;
+    }
+    public override NodeState Evaluate()
+    {
+        timeDelay -= Time.deltaTime;
+
+        if(timeDelay <= 0)
+        {
+            Debug.Log("Delaying time for chase");
+            timeDelay = 3.0f;
+            parent.SetData("chase", false);
+            isChasing = false;
+        }
+
+        return isChasing ?  NodeState.RUNNING : NodeState.SUCCESS;
     }
 }

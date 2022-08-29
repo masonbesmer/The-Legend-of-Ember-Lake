@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class OwlBehaviourTree : MonoBehaviour
+using BehaviourTree;
+using Tree = BehaviourTree.Tree;
+public class OwlBehaviourTree : Tree
 {
     [SerializeField] float attackRange;
+
+
     Player player;
 
     Animator animator;
@@ -24,26 +27,26 @@ public class OwlBehaviourTree : MonoBehaviour
 
     private float attackedTime = 999f;
     private float attackedOffset = 5f;
-    private void Awake()
-    {
-        counter = 0;
-        //   dockPosition = default;
-        lookPlayer = true;
-        player = FindObjectOfType<Player>();
-        animator = GetComponent<Animator>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    protected override Node SetupTree()
     {
-        Fly();
+        Node root = new Selector(new List<Node>
+        {
+            new Sequence(new List<Node>{
+                new TaskFlyUp(objectTransform,targetTransform,attackRange),
+                new TaskFlyAround(objectTransform,targetTransform,attackRange),
+                new TaskFlyingChase()
+            }),
+            new Sequence(new List<Node>
+            {
+                new CheckDockPositionNode(objectTransform,targetTransform,attackRange),
+                new TaskDock(objectTransform,targetTransform)
+            })
+        });
 
+        return root;
     }
+
 
     void Fly()
     {
@@ -156,4 +159,6 @@ public class OwlBehaviourTree : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
+
 }

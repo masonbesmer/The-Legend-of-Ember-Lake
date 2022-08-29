@@ -51,10 +51,43 @@ namespace BehaviourTree
         public object GetData(string key)
         {
             object value = null;
+        /*    foreach(Node child  in childrenList)
+            {
+                if(child.GetData)
+            }
+            */
             if (nodeDataContainer.TryGetValue(key, out value)) return value;
-            return parent.GetData(key);
+          
+
+
+            if(parent != null)
+            {
+                return parent.GetData(key);
+                //if (nodeDataContainer.TryGetValue(key, out value)) return value;
+            }
+
+            return null;
+       /*     Node parentNode = parent;
+            while(parentNode != null)
+            {
+                value = parentNode.GetData(key);
+                if (value != null) return value;
+                parentNode = parent;
+            }
+            return null;*/
         }
-        public void SetData(string key, object value) => nodeDataContainer[key] = value;
+        public void SetData(string key, object value)
+        {
+            nodeDataContainer[key] = value;
+            
+            Node node = parent;
+
+            while(node != null)
+            {
+                node.SetData(key, value);
+                node = node.parent;
+            }
+        }
 
         public bool ClearData(string key)
         {
@@ -80,5 +113,12 @@ namespace BehaviourTree
 
             return false;*/
         }
+
+        public bool HasKey(string key)
+        {
+           return nodeDataContainer.ContainsKey(key);
+        }
+
+        public bool HasData(string key) => nodeDataContainer.ContainsKey(key);
     }
 }
