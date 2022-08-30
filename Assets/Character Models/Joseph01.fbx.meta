@@ -15,6 +15,18 @@ ModelImporter:
   - first:
       74: 8017390324079358001
     second: Hurt
+  - first:
+      74: -8703035399731986702
+    second: Talking
+  - first:
+      74: -6792510278386438801
+    second: Marching.001
+  - first:
+      74: -3603026072996144988
+    second: PlayAttacking
+  - first:
+      74: 6517714258327031822
+    second: Idle.001
   externalObjects: {}
   materials:
     materialImportMode: 2

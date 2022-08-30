@@ -18,6 +18,39 @@ ModelImporter:
   - first:
       74: -8703035399731986702
     second: Talking
+  - first:
+      74: -6825739240377156612
+    second: Skip
+  - first:
+      74: 6040515078168584862
+    second: Walk.002
+  - first:
+      74: -3403223495440316006
+    second: Walk.001
+  - first:
+      74: 6566621567571938919
+    second: PlayAttack
+  - first:
+      74: 9149661223541978141
+    second: Armature|Hurt
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: -4317641281622819207
+    second: Armature|PlayAttack
+  - first:
+      74: -7551964380084998518
+    second: Armature|Run
+  - first:
+      74: -8399723803160671727
+    second: Armature|Skip
+  - first:
+      74: 8349542763059015795
+    second: Armature|Walk
+  - first:
+      74: 2847642367013452201
+    second: Armature|Walk.002
   externalObjects: {}
   materials:
     materialImportMode: 2
