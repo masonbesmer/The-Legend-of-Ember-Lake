@@ -27,6 +27,9 @@ ModelImporter:
   - first:
       74: 6517714258327031822
     second: Idle.001
+  - first:
+      74: -1610863427237328480
+    second: Walking
   externalObjects: {}
   materials:
     materialImportMode: 2
