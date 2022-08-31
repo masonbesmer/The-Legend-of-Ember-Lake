@@ -42,7 +42,7 @@ MonoBehaviour:
   - {fileID: -1878332245247344467}
   - {fileID: 8722654724302588833}
   m_RendererFeatureMap: adc0de57c6d2eee5a14b70d441180d79
-  m_UseNativeRenderPass: 1
+  m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -94,11 +94,5 @@ MonoBehaviour:
   m_Name: VolumetricFog
   m_EditorClassIdentifier: 
   m_Active: 1
-  fogMaterial: {fileID: 2100000, guid: b2a4f0061e73795498a66caf7ddfe564, type: 2}
-  renderPassEvent: 450
-  settings:
-    density: 1
-    fogColor: {r: 1, g: 1, b: 1, a: 1}
-    fogSteps: 25
-    maxDistance: 50
-    jitter: 50
+  fogMaterial: {fileID: 2100000, guid: 14ba9ddf35ecd7e45b72e8218586e8bd, type: 2}
+  renderPassEvent: 550
