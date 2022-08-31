@@ -108,8 +108,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Jitter: 50
-    - _MaxDistance: 50
+    - _Jitter: 100
+    - _MaxDistance: 100
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
