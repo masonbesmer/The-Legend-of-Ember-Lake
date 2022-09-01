@@ -144,7 +144,25 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -215,7 +233,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: Cutscene04
+  m_Name: Cutscene05
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
@@ -458,7 +476,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -3.189081, y: 291.8203, z: 9.770565}
+        value: {x: -10.62005, y: 318.3744, z: 6.995236}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -475,7 +493,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.72924805, y: -0.47724152, z: 0.36419678}
+        value: {x: -193.85352, y: 29.651917, z: 146.30182}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -537,7 +555,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -3.189081
+        value: -10.62005
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -556,7 +574,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 291.8203
+        value: 318.3744
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -575,7 +593,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 9.770565
+        value: 6.995236
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -594,7 +612,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.72924805
+        value: -193.85352
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -613,7 +631,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.47724152
+        value: 29.651917
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -632,7 +650,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.36419678
+        value: 146.30182
         inSlope: 0
         outSlope: 0
         tangentMode: 136
