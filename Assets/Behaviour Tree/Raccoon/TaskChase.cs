@@ -37,31 +37,15 @@ public class TaskChase : Node
         /*    if (navAgent.hasPath)
                 navAgent.acceleration = (navAgent.remainingDistance <= chaseRange) ? deceleration : acceleration;
     */
-        if (ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(objectTransform.position), ExtensionMethodsBT.GetXZVector(targetTransform.position)) <= chaseRange)
+        if (ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(defaultPosition), ExtensionMethodsBT.GetXZVector(targetTransform.position)) <= chaseRange)
         {
             Debug.Log("Chasing player");
             wasChasing = true;
             animator.SetBool("isRunning", true);
-            // var tempTargetPosition = new Vector3(targetTransform.position.x, 0, targetTransform.position.z);
             navAgent.SetDestination(targetTransform.position);
             return NodeState.RUNNING;
         }
-        else
-        {
-            //  Debug.Log("Object Position :" + objectTransform.position);
-            // rigidbody.velocity = Vector3.zero;
-            if (ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(objectTransform.position), ExtensionMethodsBT.GetXZVector(defaultPosition)) >= navAgent.stoppingDistance - .1f && wasChasing)
-            {
-                Debug.Log("Returning to player");
-                navAgent.SetDestination(defaultPosition);
-                navAgent.isStopped = false;
-                return NodeState.RUNNING;
-            }
-            navAgent.isStopped = true;
-            animator.SetBool("isRunning", false);
-            wasChasing = false;
-            Debug.Log("Back to default position");
-            return NodeState.FAILURE;
-        }
+
+        return NodeState.FAILURE;
     }
 }

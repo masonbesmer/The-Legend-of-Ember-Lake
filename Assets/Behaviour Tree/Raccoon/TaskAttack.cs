@@ -8,6 +8,7 @@ public class TaskAttack : Node
 {
     private Transform objectTransform;
     private Transform targetTransform;
+    private Vector3 defaultPosition;
 
     private Animator animator;
     private float attackRange;
@@ -20,9 +21,9 @@ public class TaskAttack : Node
         this.objectTransform = objectTransform;
         this.targetTransform = targetTransform;
         this.attackRange = attackRange;
-      //  this.nodeTransform = nodeTransform;
+  
+        defaultPosition = objectTransform.position;
         animator = objectTransform.GetComponent<Animator>();
-     //   this.id = id;
     }
 
     public override NodeState Evaluate()
@@ -31,7 +32,6 @@ public class TaskAttack : Node
 
         if (ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(objectTransform.position),ExtensionMethodsBT.GetXZVector(targetTransform.position)) <= attackRange)
         {
-          //  Debug.Log("Attacking" + Mathf.Abs(this.objectTransform.transform.position.x - this.targetTransform.position.x) + " | " + attackRange);
             animator.SetBool("isAttacking", true);
             navAgent.isStopped = true;
             return NodeState.RUNNING;
