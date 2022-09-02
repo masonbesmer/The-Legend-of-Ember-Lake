@@ -9,6 +9,7 @@ namespace BehaviourTree
         [SerializeField] protected Transform objectTransform;
         [SerializeField] protected Transform targetTransform;
 
+        [SerializeField] protected Terrain terrain;
         private Node root = null;
         void Start()
         {
@@ -26,7 +27,11 @@ namespace BehaviourTree
         }
 
         protected abstract Node SetupTree();
-        public void SetTarget(GameObject target) => targetTransform = target.transform;
+        public void SetTarget(GameObject target, Terrain terrain = null)
+        {
+            targetTransform = target.transform;
+            this.terrain = terrain;
+        }
     }
 
 

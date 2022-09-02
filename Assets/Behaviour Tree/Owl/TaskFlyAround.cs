@@ -1,18 +1,57 @@
+using BehaviourTree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskFlyAround : MonoBehaviour
+public class TaskFlyAround : Node
 {
-    // Start is called before the first frame update
-    void Start()
+    Transform objectTransform, targetTransform;
+   // Vector3 defaultPosition;
+   // private bool hasKey;
+    private float attackRange;
+    private bool chase;
+    private float chaseTime;
+    private float lastChaseTime;
+    public TaskFlyAround(Transform objectTransform, Transform targetTransform, float attackRange)
     {
-        
+     ///   defaultPosition = objectTransform.position;
+        chase = false;
+        lastChaseTime = Time.time;
+        chaseTime = 10.0f;
+        this.attackRange = attackRange;
+        //  this.defaultPosition = objectTransform.position;
+       // hasKey = false;
+        this.objectTransform = objectTransform;
+        this.targetTransform = targetTransform;
+        //   this.attackRange = attackRange;
     }
-
-    // Update is called once per frame
-    void Update()
+    public override NodeState Evaluate()
     {
-        
+        //if (chase) return NodeState.SUCCESS;
+        if (parent.HasKey("chase")){
+            chase = (bool)parent.GetData("chase");
+        }
+
+        if(Mathf.Abs(lastChaseTime - Time.time) >= chaseTime && !chase)
+        {
+            Debug.Log("Last chase time: " + lastChaseTime + " | " + Time.time);
+            lastChaseTime = Time.time;
+            parent.SetData("chase", true);
+            chase = true;
+        }
+
+        if (!chase)
+        {
+            if (parent.HasKey("defaultPosition"))
+            {
+                objectTransform.RotateAround((Vector3)parent.GetData("defaultPosition"), Vector3.up, 50 * Time.deltaTime);
+                objectTransform.LookAt(objectTransform.forward);
+                Debug.Log("Flying around.");
+            }
+           // return NodeState.RUNNING;
+        }
+        Debug.Log("Chase status : " + chase);
+        return chase ? NodeState.SUCCESS : NodeState.FAILURE;
+      //  return NodeState.SUCCESS;
     }
 }

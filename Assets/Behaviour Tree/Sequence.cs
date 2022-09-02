@@ -21,11 +21,12 @@ namespace BehaviourTree
                     case NodeState.RUNNING:
                         nodeState = NodeState.RUNNING;
                         isRunning = true;
-                        return nodeState;
+                        continue;
+                        //return nodeState;
                       //  break;
                     case NodeState.SUCCESS:
                         nodeState = NodeState.SUCCESS;
-                        return nodeState;
+                        continue;
                       //  break;
                     case NodeState.FAILURE:
                         nodeState = NodeState.FAILURE;

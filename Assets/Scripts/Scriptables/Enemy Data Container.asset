@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd0d912af76a3645830146c5381cbf1, type: 3}
   m_Name: Enemy Data Container
   m_EditorClassIdentifier: 
-  frogEnemy: {fileID: 3285996501509763781, guid: 9a2dafffa667fda41a32c1c7ef014ef3,
+  frogEnemy: {fileID: 356330184361582593, guid: 44a97ccc7edc3b041800a49f981ea324,
     type: 3}

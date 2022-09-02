@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Player/Scripts/movement.cs.meta
+guid: b1f29d4bb6e991c428106074d6300da3
+========
+guid: 2de305d4c57789e4aba71a525b985356
+>>>>>>>> 04463fbeb69e5c237956d32b22ea6ef1dca85ea7:Assets/Scripts/Enemy.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

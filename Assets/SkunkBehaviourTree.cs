@@ -20,7 +20,7 @@ public class SkunkBehaviourTree : Tree
         {
             new SkunkTaskAttack(objectTransform.GetComponent<NavMeshAgent>(), targetTransform,objectTransform,attackRange),
             new TaskChase(objectTransform.GetComponent<NavMeshAgent>(), objectTransform.GetComponent<Rigidbody>(),targetTransform,objectTransform,chaseRange,returnRange),
-            new TaskIdle(targetTransform,1)
+            new TaskIdle(objectTransform.GetComponent<NavMeshAgent>(),objectTransform,targetTransform)
         });
 
         return root;

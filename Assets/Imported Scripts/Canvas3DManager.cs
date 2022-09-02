@@ -181,7 +181,7 @@ public class Canvas3DManager : MonoBehaviour
 
     void OnPlayerHit(float miniCurrentHealth, float miniMaxHealth)
     {
-        Debug.Log("Hit " + miniCurrentHealth + " | " + miniMaxHealth);
+       // Debug.Log("Hit " + miniCurrentHealth + " | " + miniMaxHealth);
 
         if ((miniMaxHealth - miniCurrentHealth) >= miniMaxHealth)
         {
