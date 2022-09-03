@@ -11,6 +11,7 @@ public class movement1 : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float jumpHeight = 4f;
+    [SerializeField] float slowRotation;
 
     Vector3 velocity;
     bool isGrounded;
@@ -64,9 +65,11 @@ public class movement1 : MonoBehaviour
         }
 
         pc.Move(move * speed * Time.deltaTime);
-        velocity.y += gravity * Time.deltaTime;
         pc.Move(velocity * Time.deltaTime);
+        velocity.y += gravity * Time.deltaTime;
 
+
+        cam.rotation = Quaternion.Euler(cam.rotation.eulerAngles * slowRotation);
         transform.LookAt(new Vector3(cam.position.x, transform.position.y, cam.position.z));
 
 
