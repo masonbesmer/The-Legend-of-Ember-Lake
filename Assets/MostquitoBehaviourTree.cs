@@ -5,6 +5,10 @@ using BehaviourTree;
 using Tree = BehaviourTree.Tree;
 public class MostquitoBehaviourTree : Tree
 {
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip hurtSound;
+    [SerializeField] AudioClip idleSound;
+    
     [SerializeField] float chaseRange;
     [SerializeField] float returnRange;
     [SerializeField] float attackRange;
@@ -29,6 +33,24 @@ public class MostquitoBehaviourTree : Tree
     {
         counter += Time.deltaTime;
         GetComponent<Animator>().Play("mosquito-idle", 0,counter);
+    }
+
+    public void PlayAttackSound()
+    {
+        audioSource.clip = attackSound;
+        audioSource.Play();
+    }
+
+    public void PlayHurtSound()
+    {
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+        // audioSource.PlayOneShot(hurtSound);
+    }
+    public void PlayIdleSound()
+    {
+        audioSource.clip = idleSound;
+        audioSource.Play();
     }
 
     private void OnDrawGizmos()
