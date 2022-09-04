@@ -201,6 +201,8 @@ MonoBehaviour:
   objectTransform: {fileID: 2062343725931125270}
   targetTransform: {fileID: 0}
   terrain: {fileID: 0}
+  attackSound: {fileID: 0}
+  hurtSound: {fileID: 0}
   chaseRange: 46.2
   returnRange: 0
   attackRange: 5.17
