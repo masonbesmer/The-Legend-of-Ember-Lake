@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyHealth : Health
 {
+    
     [SerializeField] GameObject[] healthObject;
     [SerializeField] GameObject target;
     NavMeshAgent agent;
@@ -16,6 +17,7 @@ public class EnemyHealth : Health
 
     Animator healthAnimator;
 
+    //float currentHealth;
     Animator moveAnimator;
     bool isAttacking;
     // Start is called before the first frame update
@@ -26,9 +28,9 @@ public class EnemyHealth : Health
        miniMaxHealth = maxHealth / healthObject.Length;
        miniCurrentHealth = miniMaxHealth;
         Debug.Log("Mini max healht" + miniMaxHealth);
-       healthAnimator = healthObject[healthCounter].GetComponent<Animator>();
-     //  animator = GetComponent<Animator>();
-      // animator.Play("takeDamage", 0,);
+     //  healthAnimator = healthObject[healthCounter].GetComponent<Animator>();
+        
+
     }
 
     // Update is called once per frame
@@ -56,11 +58,11 @@ public class EnemyHealth : Health
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-
+        Debug.Log("Taking damage " + damage);
         miniCurrentHealth -= damage;
-     
+        
 
-        if ((miniMaxHealth - miniCurrentHealth) >= miniMaxHealth)
+/*        if ((miniMaxHealth - miniCurrentHealth) >= miniMaxHealth)
         {
             
             healthObject[healthCounter].SetActive(false);
@@ -74,15 +76,15 @@ public class EnemyHealth : Health
                 miniCurrentHealth = miniMaxHealth;
             }
 
-        }
+        }*/
 
         if (isDead) Destroy(gameObject);
 
-        if (healthAnimator != null)
+/*        if (healthAnimator != null)
         {
             Debug.Log("Enemy damage taken" + (miniMaxHealth - miniCurrentHealth) / miniMaxHealth);
             healthAnimator.Play("takeDamage", 0, (miniMaxHealth - miniCurrentHealth) / miniMaxHealth);
-        }
+        }*/
 
     }
 }

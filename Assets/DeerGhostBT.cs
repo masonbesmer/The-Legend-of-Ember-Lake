@@ -4,10 +4,15 @@ using UnityEngine;
 using BehaviourTree;
 public class DeerGhostBT : MonoBehaviour
 {
+
+    [SerializeField] private int deerDamage = 2;
+
     private Vector3 destinationVector;
     private float speed = 1.0f;
     private bool canRush;
     private Terrain terrain;
+
+    private PlayerHealth playerHealth;
     private void Awake()
     {
         destinationVector = transform.position + transform.forward * 25.0f;
@@ -36,4 +41,13 @@ public class DeerGhostBT : MonoBehaviour
         canRush = true;
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(deerDamage);
+        }
+    }
 }

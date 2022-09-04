@@ -49,15 +49,8 @@ public class FrogAtttackTask : Node
             animator.SetBool("isIdling", false);
             animator.SetBool("isAttacking", true);
             objectTransform.LookAt(targetTransform);
-
-            
-           // if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 16 >= 10) {
-                // GameObject spitObject = GameObject.Instantiate(spitPrefab, objectTransform.position + new Vector3(0.119999997f, 2.53999996f, 3.16000009f), Quaternion.identity);
-                hasSpit = true;
+            hasSpit = true;
                 
-           // }
-           // spitObjects.Add(spitProp);
-
             return NodeState.SUCCESS;
         }
         else if((hasSpit || this.spit.spit != null) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 29 >= 12)
@@ -72,14 +65,14 @@ public class FrogAtttackTask : Node
                     middlePosition = GetMidpoint(objectTransform.position, targetTransform.position) + Vector3.up * 8.0f,
                     backPosition = targetTransform.position,
                     speedCounter = 0
+                    
                 };
 
+                moveCounter = 0;
                 //  spitObjects.Insert(spitObjects.Count, spitProp);
                 this.spit = spitProp;
             }
-            //  animator.SetBool("isAttacking", false);
 
-          //  Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.);
             SpitProperties child = this.spit;
            // Debug.Log(animator.GetCurrentAnimatorStateInfo(0).length + " | " + animator.);
             moveCounter = (moveCounter + Time.deltaTime);
@@ -89,15 +82,11 @@ public class FrogAtttackTask : Node
 
             if (child.spit.transform.position == child.backPosition)
             {
-                moveCounter = 0;
                 hasSpit = false;
               //  child.spit = null;
                 child.speedCounter = 0;
-                Debug.Log("Destination reached!");
-               // child.speedCounter = 0;
-               // spitObjects.RemoveAt(i);
                 this.spit.spit = null;
-                GameObject.Destroy(child.spit.gameObject);
+                GameObject.Destroy(child.spit.gameObject,.5f);
             }
             return NodeState.RUNNING;
         }

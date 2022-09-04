@@ -60,6 +60,7 @@ public class PlayerHealth : Health
 
     public override void TakeDamage(int damage)
     {
+        Debug.Log("Taking damage: " + damage);
         //  Debug.Log("Damage taken: " + damage + "Current health : " + miniCurrentHealth + " Max Health" + miniMaxHealth);
 
         base.TakeDamage(damage);

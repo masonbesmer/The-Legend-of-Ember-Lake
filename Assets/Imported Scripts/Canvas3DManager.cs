@@ -39,15 +39,6 @@ public class Canvas3DManager : MonoBehaviour
 
     [SerializeField] Material redMaterial, grayMaterial;
 
-    // [SerializeField] GameObject skillUIHolder;
-    //  [SerializeField] GameObject skillUIPrefab;
-
-    /*    [SerializeField] GameObject heartUIHolder;
-        [SerializeField] GameObject heartPrefab;
-
-        [SerializeField] GameObject armorUIHolder;
-        [SerializeField] GameObject armorPrefab;
-    */
     [Header("Properties")]
     [SerializeField] ItemProperties skillUIProperty;
 
@@ -90,14 +81,18 @@ public class Canvas3DManager : MonoBehaviour
                 musicSlider.onValueChanged.AddListener(val => audioMixer.SetFloat(MUSIC_VOLUME, val));
         */
 
-        AddSkill(SkillType.DEFAULT);
-        ChangeActiveSkill(SkillType.DEFAULT);
+      //  AddSkill(SkillType.DEFAULT);
+      //  ChangeActiveSkill(SkillType.DEFAULT);
 
         playerAbility.onAbilityReceived += AddSkill;
         playerAbility.onAbilityChange += ChangeActiveSkill;
-
         /*      AddSkill(SkillType.SPREAD);
               ChangeActiveSkill(SkillType.SPREAD);*/
+    }
+
+    private void Start()
+    {
+        ChangeActiveSkill(SkillType.DEFAULT);
     }
 
     void InitializeHeart()

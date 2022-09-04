@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class movement1 : MonoBehaviour
 {
-    public CharacterController pc;
-    public Transform cam;
+    public CharacterController playerControler;
+    public Transform mainCamera;
 
     [SerializeField] float speed;
     [SerializeField] float gravity = -9.81f;
@@ -17,7 +17,8 @@ public class movement1 : MonoBehaviour
     bool isGrounded;
 
     public Animator anim;
-
+    float turnSmoothTime = .1f;
+    float currentSmoothAngleVelocity;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -26,52 +27,44 @@ public class movement1 : MonoBehaviour
 
     private void Update()
     {
-        move();
+        Move();
     }
 
-    void move()
+    void Move()
     {
 
-        isGrounded = pc.isGrounded;
+        isGrounded = playerControler.isGrounded;
+
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = 0f;
         }
 
-        float x = -Input.GetAxisRaw("Horizontal");
-        float z = -Input.GetAxisRaw("Vertical");
+        float horizontal = -Input.GetAxisRaw("Horizontal");
+        float vertical = -Input.GetAxisRaw("Vertical");
 
-        if (z == 0 || x == 0)
+        var direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        if(direction.sqrMagnitude >= .1f)
         {
-            anim.SetFloat("Blend", 0);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float smoothTargetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle + mainCamera.eulerAngles.y, ref currentSmoothAngleVelocity, turnSmoothTime);
+
+            transform.rotation = Quaternion.Euler(0, smoothTargetAngle, 0);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            playerControler.Move(moveDir * speed * Time.deltaTime);
+           
         }
 
-        if (z == 1 || z == -1)
-        {
-            anim.SetFloat("Blend", 0.33f);
-        }
 
-        if (x == 1 || x == -1)
-        {
-            anim.SetFloat("Blend", 0.33f);
-        }
-
-
-        Vector3 move = transform.right.normalized * x + transform.forward.normalized * z;
-
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        pc.Move(move * speed * Time.deltaTime);
-        pc.Move(velocity * Time.deltaTime);
-        velocity.y += gravity * Time.deltaTime;
-
-
-        cam.rotation = Quaternion.Euler(cam.rotation.eulerAngles * slowRotation);
-        transform.LookAt(new Vector3(cam.position.x, transform.position.y, cam.position.z));
-
-
+            velocity.y += gravity * Time.deltaTime;
+            playerControler.Move(velocity * Time.deltaTime);
     }
 }

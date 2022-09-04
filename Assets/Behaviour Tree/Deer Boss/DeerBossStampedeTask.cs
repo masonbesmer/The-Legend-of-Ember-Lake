@@ -29,9 +29,11 @@ public class DeerBossStampedeTask : Node
     private float stampedeCount;
     private float stampedeMax;
     private bool stampedeOver;
+    private float deerSpeed;
+    private float ghostDeerDistance;
 
 
-    public DeerBossStampedeTask(GameObject ghostDeerPrefab, Transform targetTransform,Terrain terrain,  Transform objectTransform, float attackRange, float attackRate, float xstampedeCount, float gdCount)
+    public DeerBossStampedeTask(GameObject ghostDeerPrefab, Transform targetTransform,Terrain terrain,  Transform objectTransform, float attackRange, float attackRate, float deerSpeed, float ghostDeerDistance, float xstampedeCount, float gdCount)
     {
         stampedeOver = false;
         isInStampede = false;
@@ -39,6 +41,8 @@ public class DeerBossStampedeTask : Node
         stampedeCount = 0;
         stampedeMax = 2;
 
+        this.ghostDeerDistance = ghostDeerDistance;
+        this.deerSpeed = deerSpeed;
         this.attackRate = attackRate;
         this.stampedeMax = xstampedeCount;
         this.terrain = terrain;
@@ -79,8 +83,8 @@ public class DeerBossStampedeTask : Node
 
                 for (int i = 0; i < ghostDeerCount; i++)
                 {
-                    GameObject deer = GameObject.Instantiate(ghostDeerPrefab, objectTransform.position + objectTransform.right * Random.Range(-12, 12), objectTransform.rotation);
-                    deer.GetComponent<DeerGhostBT>().SetDeer(8.0f, terrain);
+                    GameObject deer = GameObject.Instantiate(ghostDeerPrefab, objectTransform.position + objectTransform.right * Random.Range(-ghostDeerDistance, ghostDeerDistance), objectTransform.rotation);
+                    deer.GetComponent<DeerGhostBT>().SetDeer(deerSpeed, terrain);
                 }
 
                 if (stampedeCount >= stampedeMax)

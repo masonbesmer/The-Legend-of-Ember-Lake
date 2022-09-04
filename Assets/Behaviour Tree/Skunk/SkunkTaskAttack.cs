@@ -36,11 +36,11 @@ public class SkunkTaskAttack : Node
         if (ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(objectTransform.position), ExtensionMethodsBT.GetXZVector(targetTransform.position)) > attackRange)
         {
             navAgent.isStopped = false;
-         //   animator.SetBool("isAttacking", false);
+            //   animator.SetBool("isAttacking", false);
             return NodeState.FAILURE;
         }
 
-       // Debug.Log("Attacking is being run");
+        // Debug.Log("Attacking is being run");
 
         if (attackedTime >= attackOffset)
         {
@@ -52,18 +52,12 @@ public class SkunkTaskAttack : Node
             attackedTime += Time.deltaTime;
         }
 
-
         if (canAttack)
         {
-         //   attackedTime = 0;
             canAttack = false;
-            //  isAttacking = true;
-         //   Debug.Log("Attacking" + Mathf.Abs(this.objectTransform.transform.position.x - this.targetTransform.position.x) + " | " + attackRange);
             objectTransform.LookAt(targetTransform.position);
             animator.SetTrigger("isAttacking");
-            //animator.GetCurrentAnimatorStateInfo(0).
             navAgent.isStopped = true;
-            //  return NodeState.RUNNING;
         }
 
         return NodeState.RUNNING;

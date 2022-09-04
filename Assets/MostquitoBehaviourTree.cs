@@ -11,12 +11,13 @@ public class MostquitoBehaviourTree : Tree
     [SerializeField] float attackRate;
     [SerializeField] float flightHeight;
     [SerializeField] float moveSpeed;
+    [SerializeField] int attackDamage;
     public float speed;
     protected override Node SetupTree()
     {
         Node root = new Selector(new List<Node>
         {
-            new MosquitoAttack(targetTransform,objectTransform,objectTransform.GetComponent<Animator>(), attackRange,attackRate),
+            new MosquitoAttack(targetTransform,objectTransform,objectTransform.GetComponent<Animator>(), attackRange,attackRate,attackDamage),
             new MosquitoChase(objectTransform,targetTransform,terrain,chaseRange, attackRange, moveSpeed,flightHeight)
         });
 
