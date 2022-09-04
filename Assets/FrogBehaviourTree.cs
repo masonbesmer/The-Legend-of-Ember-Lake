@@ -8,6 +8,10 @@ using UnityEngine.AI;
 public class FrogBehaviourTree : Tree
 {
 
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip hurtSound;
+
+
     [SerializeField] GameObject spitPrefab;
     [SerializeField] float chaseRange;
     [SerializeField] float returnRange;
@@ -85,6 +89,18 @@ public class FrogBehaviourTree : Tree
         frontPosition = transform.position;
         middlePosition = GetMidpoint(transform.position, targetTransform.position);
         backPosition = targetTransform.position;
+    }
+    public void PlayAttackSound()
+    {
+        audioSource.clip = attackSound;
+        audioSource.Play();
+    }
+
+    public void PlayHurtSound()
+    {
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+        // audioSource.PlayOneShot(hurtSound);
     }
 
     public void GetPlayerPosition()

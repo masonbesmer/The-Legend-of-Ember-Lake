@@ -6,6 +6,10 @@ using UnityEngine.AI;
 public class DeerBossBT : BehaviourTree.Tree
     
 {
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip hurtSound;
+    [SerializeField] AudioClip stampSound;
+
     [SerializeField] GameObject ghostDeerPrefab;
     [SerializeField] float chaseRange;
     [SerializeField] float returnRange;
@@ -31,6 +35,24 @@ public class DeerBossBT : BehaviourTree.Tree
            // new TaskIdle(objectTransform.GetComponent<NavMeshAgent>(),objectTransform,targetTransform)
         });
         return root;
+    }
+
+    public void PlayAttackSound()
+    {
+        audioSource.clip = attackSound;
+        audioSource.Play();
+    }
+
+    public void PlayHurtSound()
+    {
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+        // audioSource.PlayOneShot(hurtSound);
+    }
+    public void PlayStampSound()
+    {
+        audioSource.clip = stampSound;
+        audioSource.Play();
     }
 
     private void OnDrawGizmos()
