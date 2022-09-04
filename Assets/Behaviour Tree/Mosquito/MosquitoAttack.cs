@@ -12,9 +12,13 @@ public class MosquitoAttack : Node
     private Animator animator;
     private float attackRange;
 
+    private int attackDamage;
+
     private float lastAttackedTime, attackRate;
 
-    public MosquitoAttack( Transform targetTransform, Transform objectTransform, Animator animator, float attackRange, float attackRate)
+    private PlayerHealth playerHealth;
+
+    public MosquitoAttack( Transform targetTransform, Transform objectTransform, Animator animator, float attackRange, float attackRate, int attackDamage)
     {
         lastAttackedTime = 999f;
 
@@ -26,12 +30,16 @@ public class MosquitoAttack : Node
 
         defaultPosition = objectTransform.position;
         animator = objectTransform.GetComponent<Animator>();
+        playerHealth = targetTransform.GetComponent<PlayerHealth>();
+        this.attackDamage = attackDamage;
     }
 
     public override NodeState Evaluate()
     {
         if ((Mathf.Abs(lastAttackedTime - Time.time) >= attackRate) && ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(objectTransform.position), ExtensionMethodsBT.GetXZVector(targetTransform.position)) <= attackRange)
         {
+
+            playerHealth.TakeDamage(attackDamage);
             objectTransform.LookAt(targetTransform);
             animator.SetTrigger("isAttacking");
             lastAttackedTime = Time.time;

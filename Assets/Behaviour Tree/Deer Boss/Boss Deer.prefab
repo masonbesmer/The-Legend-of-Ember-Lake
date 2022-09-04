@@ -311,7 +311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4347353837891202533}
   m_LocalRotation: {x: -0.27201262, y: 0.27201262, z: 0.65269375, w: 0.6526938}
-  m_LocalPosition: {x: -1.5820359, y: 6.039618, z: 0.0450736}
+  m_LocalPosition: {x: 0, y: 6.039618, z: 0.0450736}
   m_LocalScale: {x: 300, y: 300, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 5850220878104849801}
   - component: {fileID: 5850220878104849800}
   - component: {fileID: 5850220878104849814}
+  - component: {fileID: 72717342773586187}
   m_Layer: 0
   m_Name: Boss Deer
   m_TagString: Untagged
@@ -570,6 +571,9 @@ MonoBehaviour:
   stampedeMax: 3
   attackRate: 5
   ghostDeercount: 6
+  ghostDeerSpeed: 0
+  ghostDeerInitialXPosition: 0
+  attackDamage: 3
   speed: 1.59
 --- !u!195 &5850220878104849800
 NavMeshAgent:
@@ -613,6 +617,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &72717342773586187
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5850220878104849803}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.6944991
+  m_Height: 8.395515
+  m_Direction: 2
+  m_Center: {x: -0.041546877, y: 5.694258, z: -2.8460255}
 --- !u!1 &6594080243547837269
 GameObject:
   m_ObjectHideFlags: 0

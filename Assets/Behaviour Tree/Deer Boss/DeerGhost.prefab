@@ -722,6 +722,7 @@ GameObject:
   - component: {fileID: 5540563776685140539}
   - component: {fileID: 6673606960752270268}
   - component: {fileID: 7333042435956215307}
+  - component: {fileID: 5984806888689609217}
   m_Layer: 0
   m_Name: DeerGhost
   m_TagString: Untagged
@@ -738,7 +739,7 @@ Transform:
   m_GameObject: {fileID: 8930191285539575732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.21605419, y: 0.21605419, z: 0.21605419}
+  m_LocalScale: {x: 1.2721272, y: 1.2721272, z: 1.2721272}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1335888943438075260}
@@ -758,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73c9b544083e9a4285c70be41dbf368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deerDamage: 2
 --- !u!95 &7333042435956215307
 Animator:
   serializedVersion: 4
@@ -778,6 +780,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &5984806888689609217
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8930191285539575732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.9417634
+  m_Height: 8.264988
+  m_Direction: 2
+  m_Center: {x: -1.5, y: 5.783828, z: -2.658836}
 --- !u!1 &8978824466034890163
 GameObject:
   m_ObjectHideFlags: 0
