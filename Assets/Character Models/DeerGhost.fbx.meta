@@ -12,7 +12,12 @@ ModelImporter:
   - first:
       74: -1523268220535387276
     second: Stampeed
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 607529cc78f3c31478863fef5ff39f9d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
