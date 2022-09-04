@@ -200,9 +200,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTransform: {fileID: 2062343725931125270}
   targetTransform: {fileID: 0}
+  terrain: {fileID: 0}
   chaseRange: 46.2
   returnRange: 0
   attackRange: 5.17
+  attackRate: 0
+  attackDamage: 0
   speed: 0
 --- !u!195 &2062343725931125353
 NavMeshAgent:

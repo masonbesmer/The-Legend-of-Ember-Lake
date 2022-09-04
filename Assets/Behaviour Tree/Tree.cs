@@ -11,8 +11,11 @@ namespace BehaviourTree
 
         [SerializeField] protected Terrain terrain;
         private Node root = null;
+
+        protected AudioSource audioSource;
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             root = SetupTree();
           //  Destroy(gameObject, 3);
         }

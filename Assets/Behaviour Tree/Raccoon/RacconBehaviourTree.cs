@@ -7,12 +7,17 @@ using UnityEngine.AI;
 public class RacconBehaviourTree : Tree
 {
 
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip hurtSound;
     
+
     [SerializeField] float chaseRange;
     [SerializeField] float returnRange;
     [SerializeField] float attackRange;
     [SerializeField] float attackRate;
     [SerializeField] int attackDamage;
+
+   // private AudioSource audioSource;
 
     public float speed;
     protected override Node SetupTree()
@@ -36,5 +41,20 @@ public class RacconBehaviourTree : Tree
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, returnRange);
     }
+
+    public void PlayAttackSound()
+    {
+        audioSource.clip = attackSound;
+        audioSource.Play();
+    }
+
+    public void PlayHurtSound()
+    {
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+        // audioSource.PlayOneShot(hurtSound);
+    }
+
+   // public void PlayHurtSound)
 
 }
