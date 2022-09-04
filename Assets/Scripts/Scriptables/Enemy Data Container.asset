@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd0d912af76a3645830146c5381cbf1, type: 3}
   m_Name: Enemy Data Container
   m_EditorClassIdentifier: 
-  frogEnemy: {fileID: 356330184361582593, guid: 44a97ccc7edc3b041800a49f981ea324,
+  frogEnemy: {fileID: 8316713541852314507, guid: 9f3ca31bb5766504c80cac9f9e9e54d4,
     type: 3}
+  raccoonEnemy: {fileID: 1717342732333154476, guid: 2acf9eedac701ce498573af915960645,
+    type: 3}
+  mosquitoEnemy: {fileID: 6852175811089352826, guid: 94b3f8f20fddf2c4dbefa72e1464ce4e,
+    type: 3}
+  squirrelEnemy: {fileID: 3285996501509763781, guid: 9a2dafffa667fda41a32c1c7ef014ef3,
+    type: 3}
+  owlEnemy: {fileID: 356330184361582593, guid: 44a97ccc7edc3b041800a49f981ea324, type: 3}
