@@ -42,6 +42,7 @@ public class TaskAttack : Node
 
         if (canAttack && ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(objectTransform.position),ExtensionMethodsBT.GetXZVector(targetTransform.position)) <= attackRange)
         {
+
             lastAttackedTime = Time.time;
             animator.SetTrigger("isAttacking");
             playerHealth.TakeDamage(attackDamage);
