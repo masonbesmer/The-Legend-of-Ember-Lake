@@ -36,8 +36,7 @@ Transform:
 --- !u!198 &276679699195087064
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2667039952055161064, guid: c1143ebc7669ccd4788e710dd29bcf6c,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276679699195087066}
@@ -5652,7 +5651,7 @@ Transform:
   m_GameObject: {fileID: 8074767741291800518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.73590106, y: 0.73590106, z: 0.73590106}
+  m_LocalScale: {x: 0.8790338, y: 0.8790338, z: 0.8790338}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 276679699195087065}
@@ -5695,10 +5694,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTransform: {fileID: 8882372619128241532}
   targetTransform: {fileID: 0}
+  terrain: {fileID: 0}
   fartPX: {fileID: 276679699195087064}
   chaseRange: 39.6
   returnRange: 39.9
   attackRange: 15.66
+  skunkDamage: 2
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
   speed: 0
 --- !u!195 &3288940555881850650
 NavMeshAgent:

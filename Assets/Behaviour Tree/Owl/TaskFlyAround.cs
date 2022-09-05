@@ -12,6 +12,8 @@ public class TaskFlyAround : Node
     private bool chase;
     private float chaseTime;
     private float lastChaseTime;
+
+    private Animator animator;
     public TaskFlyAround(Transform objectTransform, Transform targetTransform, float attackRange)
     {
      ///   defaultPosition = objectTransform.position;
@@ -23,6 +25,7 @@ public class TaskFlyAround : Node
        // hasKey = false;
         this.objectTransform = objectTransform;
         this.targetTransform = targetTransform;
+        this.animator = objectTransform.GetComponent<Animator>();
         //   this.attackRange = attackRange;
     }
     public override NodeState Evaluate()
@@ -44,6 +47,7 @@ public class TaskFlyAround : Node
         {
             if (parent.HasKey("defaultPosition"))
             {
+                animator.SetBool("fly", true);
                 objectTransform.RotateAround((Vector3)parent.GetData("defaultPosition"), Vector3.up, 50 * Time.deltaTime);
                 objectTransform.LookAt(objectTransform.forward);
                 Debug.Log("Flying around.");

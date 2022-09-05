@@ -9,6 +9,8 @@ public class SkunkTaskAttack : Node
     private Transform objectTransform;
     private Transform targetTransform;
 
+    private LayerMask playerMask;
+
     private Animator animator;
     private float attackRange;
     private NavMeshAgent navAgent;
@@ -17,8 +19,12 @@ public class SkunkTaskAttack : Node
     private float attackedTime = 9999f;
     private float attackOffset = 2f;
     private bool canAttack = false;
-    public SkunkTaskAttack(NavMeshAgent navAgent, Transform targetTransform, Transform objectTransform, float attackRange)
+
+    private int skunkDamage;
+    public SkunkTaskAttack(NavMeshAgent navAgent, Transform targetTransform, Transform objectTransform, float attackRange, int skunkDamage, LayerMask playerMask)
     {
+        this.skunkDamage = skunkDamage;
+        this.playerMask = playerMask;
         Debug.Log("Initialized");
         //  this.attackedTime = 9999f;
         // this.canAttack = false;
@@ -57,6 +63,9 @@ public class SkunkTaskAttack : Node
             canAttack = false;
             objectTransform.LookAt(targetTransform.position);
             animator.SetTrigger("isAttacking");
+
+
+
             navAgent.isStopped = true;
         }
 

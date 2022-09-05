@@ -6,7 +6,7 @@ using Tree = BehaviourTree.Tree;
 public class OwlBehaviourTree : Tree
 {
     [SerializeField] float attackRange;
-
+    [SerializeField] int owlDamage;
 
     Player player;
 
@@ -158,6 +158,14 @@ public class OwlBehaviourTree : Tree
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            other.GetComponent<IHealth>().TakeDamage(owlDamage);
+        }
     }
 
 

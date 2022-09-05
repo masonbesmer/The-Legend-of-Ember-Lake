@@ -29,8 +29,9 @@ public class DeerBossBT : BehaviourTree.Tree
         Node root = new Selector(new List<Node>
         {
             new DeerBossStampedeTask(ghostDeerPrefab,targetTransform,terrain, objectTransform,attackRange,attackRate, ghostDeerSpeed, ghostDeerInitialXPosition, stampedeMax, ghostDeercount),
-            new DeerBossDashTask(objectTransform.GetComponent<NavMeshAgent>(), terrain,targetTransform,objectTransform,attackRange)
-           // new TaskAttack(objectTransform.GetComponent<NavMeshAgent>(), targetTransform,objectTransform,attackRange),
+            new DeerBossDashTask(objectTransform.GetComponent<NavMeshAgent>(), terrain,targetTransform,objectTransform,attackRange),
+            new DeerBossIdle()
+            // new TaskAttack(objectTransform.GetComponent<NavMeshAgent>(), targetTransform,objectTransform,attackRange),
            // new TaskChase(objectTransform.GetComponent<NavMeshAgent>(), objectTransform.GetComponent<Rigidbody>(),targetTransform,objectTransform,chaseRange,returnRange),
            // new TaskIdle(objectTransform.GetComponent<NavMeshAgent>(),objectTransform,targetTransform)
         });

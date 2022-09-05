@@ -57,7 +57,10 @@ public class DeerBossStampedeTask : Node
 
     public override NodeState Evaluate()
     {
-        if ((Mathf.Abs(lastAttackedTime - Time.time) >= attackRate) || isInStampede)
+
+        bool isWithinChaseRange = ExtensionMethodsBT.GetDistance(ExtensionMethodsBT.GetXZVector(defaultPosition), ExtensionMethodsBT.GetXZVector(objectTransform.position)) <= attackRange;
+
+        if (((Mathf.Abs(lastAttackedTime - Time.time) >= attackRate) || isInStampede) && isWithinChaseRange)
         {
             stampedeOver = false;
             lastAttackedTime = Time.time;

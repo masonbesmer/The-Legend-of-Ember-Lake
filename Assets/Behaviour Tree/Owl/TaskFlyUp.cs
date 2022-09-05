@@ -9,12 +9,15 @@ public class TaskFlyUp : Node
     private Transform targetTransform;
     private Vector3 defaultPosition;
     private bool isUp;
+    private Animator animator;
 
     public TaskFlyUp(Transform objectTransform, Transform targetTransform, float attackRange)
     {
+
         this.defaultPosition = objectTransform.position;
         this.objectTransform = objectTransform;
         this.targetTransform = targetTransform;
+        animator = objectTransform.GetComponent<Animator>(); 
         this.attackRange = attackRange;
         isUp = false;
     }
@@ -33,8 +36,11 @@ public class TaskFlyUp : Node
             Vector3 flyingPosition = defaultPosition + Vector3.up * 8.0f;
             objectTransform.position = Vector3.MoveTowards(objectTransform.position,flyingPosition, Time.deltaTime * 10f);
 
+            animator.SetBool("fly", true);
+
             if(objectTransform.position == flyingPosition)
             {
+               
                 isUp = true;
                 parent.SetData("defaultPosition", targetTransform.position);
                 parent.parent.SetData("isUp", true);

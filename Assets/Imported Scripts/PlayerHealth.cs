@@ -36,7 +36,7 @@ public class PlayerHealth : Health
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+/*        if (Input.GetMouseButtonDown(1))
         {
             Heal(8);
         }
@@ -44,7 +44,7 @@ public class PlayerHealth : Health
         if (Input.GetMouseButtonDown(0))
         {
             TakeDamage(1);
-        }
+        }*/
     }
 
     void UpdateMiniHealth(float health)

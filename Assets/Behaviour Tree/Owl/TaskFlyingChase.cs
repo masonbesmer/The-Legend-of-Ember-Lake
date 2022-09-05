@@ -13,6 +13,7 @@ public class TaskFlyingChase : Node
 
     private float attackRange;
     private float counter;
+    private Animator animator;
 /*    public TaskFlyingChase()
     {
     }*/
@@ -29,6 +30,7 @@ public class TaskFlyingChase : Node
         // hasKey = false;
         this.objectTransform = objectTransform;
         this.targetTransform = targetTransform;
+        animator = objectTransform.GetComponent<Animator>();
         //   this.attackRange = attackRange;
     }
     public override NodeState Evaluate()
@@ -40,7 +42,7 @@ public class TaskFlyingChase : Node
                 isChasing = true;
                 hasStarted = true;
                 frontPosition = objectTransform.position;
-                middlePosition = targetTransform.position;
+                middlePosition = targetTransform.position - Vector3.down;
                 Vector3 direction = ExtensionMethodsBT.GetXZDirection(objectTransform.position, targetTransform.position);
                 objectTransform.LookAt(targetTransform);
                 backPosition = targetTransform.position + (direction * attackRange) + (Vector3.up * 8.0f);
@@ -50,6 +52,8 @@ public class TaskFlyingChase : Node
             else
             {
                 Debug.Log("Chasing");
+
+                animator.SetBool("fly", true);
                 objectTransform.LookAt(targetTransform);
                 counter = (counter + Time.deltaTime);
                 objectTransform.position = CubicBezierCurve(frontPosition, middlePosition, backPosition, counter);

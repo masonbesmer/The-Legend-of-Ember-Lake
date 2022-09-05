@@ -41,14 +41,21 @@ public class MosquitoChase : Node
         {
             objectTransform.LookAt(targetTransform);
             isInDefaultPosition = false;
+            animator.SetBool("isFlying", true);
             objectTransform.position = Vector3.MoveTowards(new Vector3(objectTransform.position.x, objectTransform.position.y, objectTransform.position.z), targetTransform.position, Time.deltaTime * moveSpeed);
             return NodeState.RUNNING;
         }
         else if (isWithinHome && !isWithinChaseRange)
         {
+            
             objectTransform.LookAt(defaultPosition);
             objectTransform.position = Vector3.MoveTowards(new Vector3(objectTransform.position.x, objectTransform.position.y, objectTransform.position.z), defaultPosition, Time.deltaTime * moveSpeed);
+        
             return NodeState.RUNNING;
+        }
+        else if(!isWithinHome && !isWithinChaseRange)
+        {
+            animator.SetBool("isFlying", false);
         }
 
         return base.Evaluate();

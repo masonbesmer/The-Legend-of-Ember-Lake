@@ -53,9 +53,8 @@ public class DeerBossDashTask : Node
             objectTransform.LookAt(targetTransform);
             defaultPosition = objectTransform.position + objectTransform.forward *  20.0f;
             return NodeState.SUCCESS;
-
         }
 
-        return NodeState.RUNNING;
+        return NodeState.FAILURE;
     }
 }
